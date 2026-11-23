@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +10,25 @@
     <header>
         <h1>Student Dashboard</h1>
     </header>
+
     <main>
-        <p>Welcome back! Here’s what’s happening:</p>
+        <p>Welcome back! Here's what's happening:</p>
+
+        <h2>Springfield Weather</h2>
+
+        {% if api_data %}
+            {% for title, description, category in api_data %}
+                <h3>{{ title }}</h3>
+                <p>{{ description }}</p>
+                <p>Category: {{ category }}</p>
+            {% endfor %}
+        {% else %}
+            <p>Weather information is currently unavailable.</p>
+        {% endif %}
+
+        <h2>Campus Navigation</h2>
         <ul>
-            <li>More features coming soon...</li>
-            <li><a href="/events">View Events</a></li>
+            <li><a href="/events">View Campus Events</a></li>
         </ul>
     </main>
 </body>
